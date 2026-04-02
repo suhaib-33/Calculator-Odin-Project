@@ -9,8 +9,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 500px;
     margin-top: 30px;
+    background: rgb(209, 209, 209);
 }
 
 .calculator {
@@ -31,8 +32,8 @@ body {
     padding: 20px;
     border: 1px solid;
     gap: 10px;
-    color: white;
-    border-radius: 10px;
+    color: rgb(87, 82, 82);
+    border-radius: 0px;
 }
 
 button {
@@ -53,9 +54,8 @@ button:hover{
 input {
     background-color: rgb(255, 255, 255);
     border: 0px;
-    border-radius: 5px;
+    border-radius: px;
     padding: 10px;
-    margin-bottom: 20px;
     text-align: left;
     height: 50px;
     font-size: 20px;

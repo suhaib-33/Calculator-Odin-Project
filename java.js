@@ -1,19 +1,45 @@
-const displays = document.getElementById("display")
-const buttons = Array.from(document.querySelectorAll("button"));
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll("button");
 
-buttons.forEach(button => (
-    button.addEventListener("click", (e) =>{
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        let value = btn.textContent;
 
-        if(e.target.innerText === "C") {
-            displays.value = "";
-        } else if (e.target.innerText === "=") {
-            try {
-            displays.value = eval(displays.value)
-            } catch {
-                displays.value ="Error";
-            }
-        } else if (e.target.innerText) {
-            displays.value += e.target.innerText;
+        // CLEAR
+        if (value === "C") {
+            display.value = "";
         }
-    })
-))
+
+         else if (value === "=") {
+            let expo = display.value;
+            let result = calculate(expo);
+            display.value = result;
+        }
+
+        // NORMAL INPUT (numbers + operators)
+        else {
+            display.value += value;
+        }
+    });
+});
+
+// SIMPLE CALCULATE FUNCTION
+
+function calculate (expo) {
+    let operators = ["+", "-", "*", "/"];
+    for (let op of operators) {
+        if (expo.includes(op)) {
+            let parts = expo.split(op);
+
+            let a = Number(parts[0]);
+            let b = Number(parts[1]);
+
+            if (op === "+") return a + b;
+            if (op === "-") return a - b;
+            if (op === "*") return a * b;
+            if (op === "/") return b === 0 ? "Error" : a / b;
+        }
+    }
+}
+
+

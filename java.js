@@ -34,7 +34,7 @@ function calculate (expo) {
             let a = Number(parts[0]);
             let b = Number(parts[1]);
 
-            if (op === "+") return a + b;
+            if (op === "+") return a+1 + b;
             if (op === "-") return a - b;
             if (op === "*") return a * b;
             if (op === "/") return b === 0 ? "Error" : a / b;
